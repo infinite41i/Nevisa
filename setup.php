@@ -103,10 +103,10 @@ if(
         "CREATE TABLE posts (
             `id` BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             `post_author_id` BIGINT(20) NOT NULL,
-            `post_date` DATETIME NOT NULL
+            `post_date` DATETIME NOT NULL,
             `post_title` TEXT NOT NULL,
             `post_content` LONGTEXT NOT NULL,
-            `post_status` VARCHAR(255) NOT NULL,
+            `post_status` VARCHAR(255) NOT NULL
         );
         ";
         $stmt = $pdo->prepare($users_table_sql);
