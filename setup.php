@@ -42,6 +42,7 @@ if(
     //SQL PDO setup
     try{
         $pdo_general = new PDO("mysql: host=".$DBHOSTNAME, $DBUSERNAME, $DBPASSWORD);
+        $pdo_general->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
         die("Could not connect to database: ".$e->getMessage());
     }
@@ -59,6 +60,7 @@ if(
     //Set-up database tables
     try{
         $pdo = new PDO("mysql: host=". $DBHOSTNAME . ";dbname=" . $DBNAME, $DBUSERNAME, $DBPASSWORD);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch(PDOException $e) {
         die_drop($pdo_general, $DBNAME, "Could not connect to database: ".$e->getMessage());
     }

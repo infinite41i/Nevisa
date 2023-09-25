@@ -10,6 +10,10 @@ try {
 } catch (PDOException $e) {
     if($e->getCode() == 1049){
         die("Can't connect to database.");
+    } else if ($e->getCode() == 2002){
+        die("Can't connect to host");
+    } else {
+        die("PDO Exception.".$e->getMessage());
     }
 }
 
