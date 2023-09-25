@@ -99,7 +99,7 @@ if(
     }
     //Set-up posts table
     try {
-        $users_table_sql = 
+        $posts_table_sql = 
         "CREATE TABLE posts (
             `id` BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             `post_author_id` BIGINT(20) NOT NULL,
@@ -109,10 +109,10 @@ if(
             `post_status` VARCHAR(255) NOT NULL
         );
         ";
-        $stmt = $pdo->prepare($users_table_sql);
+        $stmt = $pdo->prepare($posts_table_sql);
         $stmt->execute();
     } catch (PDOException $e) {
-        die_drop($pdo_general, $DBNAME, "Could not create table `users`: ".$e->getMessage());
+        die_drop($pdo_general, $DBNAME, "Could not create table `posts`: ".$e->getMessage());
     }
     //Set-up config file
     $data = "<?php
